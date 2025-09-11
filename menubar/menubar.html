@@ -1,0 +1,63 @@
+<!-- menubar/menubar.html -->
+<style>
+  .navbar {
+    background-color: #222;
+    padding: 12px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  body {
+    padding-top: 56px; /* เผื่อพื้นที่ด้านบนสำหรับ navbar */
+  }
+
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-menu li {
+    margin: 0 20px;
+  }
+
+  .nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+
+  .nav-menu a:hover {
+    color: #4CAF50;
+  }
+
+  #login-logout-link {
+    margin-left: auto;
+  }
+</style>
+
+<nav class="navbar">
+  <ul class="nav-menu">
+    <li><a href="../homepage/index.html">หน้าหลัก</a></li>
+    <li><a href="../about-page/about.html">เกี่ยวกับ</a></li>
+    <li><a href="../login-singup/login.html">API Key</a></li>
+    <li><a href="../report-page/reportissue.html">รายงานปัญหา</a></li>
+    <li><a href="#" onclick="downloadManual()">ดาวน์โหลดเอกสารคู่มือ</a></li>
+    <li><a href="../login-singup/login.html">Login</a></li>
+  </ul>
+</nav>
+
+<script>
+  // ฟังก์ชันสำหรับดาวน์โหลดคู่มือ
+  function downloadManual() {
+    window.location.href = '/download-manual';
+  }
+</script>

@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+.env
+.venv
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Logs
+*.log
+*.txt
+
+# IDE settings
+.idea/
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Uploaded files
+uploads/
+
+# Models
+models/*.pt
+
+# Node.js
+node_modules/
+
+# Python environment
+*.env
+*.venv

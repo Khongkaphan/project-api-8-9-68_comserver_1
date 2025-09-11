@@ -1,0 +1,465 @@
+/* ---- Reset & Global Styles ---- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #1e1e1e, #2c3e50);
+  color: #ecf0f1;
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* ---- Header ---- */
+.header {
+  padding: 30px 0;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #3498db;
+}
+
+.header p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* ---- Link to button ---- */
+.login-link {
+  text-decoration: none;
+}
+
+/* ---- Login Button ---- */
+.login-btn {
+  background: #1bb3ce;
+  color: white;
+  font-size: 1rem;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
+.login-btn:hover {
+  background: #164b6e;
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.login-btn:active {
+  transform: translateY(1px);
+  opacity: 1;
+}
+
+/* ---- Main Content ---- */
+.main-content {
+  margin: 30px auto;
+  max-width: 900px;
+  padding: 30px;
+  background: #2c3e50;
+  border-radius: 12px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ---- Upload Section ---- */
+.upload-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.upload-area {
+  border: 3px dashed #3498db;
+  padding: 30px;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #34495e;
+  border-radius: 12px;
+  transition: 0.3s;
+  font-size: 1.2rem;
+}
+
+.upload-area:hover {
+  background-color: #1abc9c;
+  color: #fff;
+}
+
+/* ---- Buttons ---- */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+button {
+  font-size: 1rem;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-btn {
+  background: #3498db;
+  color: white;
+}
+
+.api-btn {
+  background: #9b59b6;
+  color: white;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+/* ---- Description ---- */
+.description {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.description h2 {
+  color: #1a6699;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.description p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* ---- Result Section ---- */
+.result {
+  margin-top: 30px;
+}
+
+#resultText {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.image-container {
+  margin-top: 20px;
+}
+
+.uploaded-image,
+.processed-image {
+  max-width: 100%;
+  max-height: 350px;
+  border: 3px solid #ddd;
+  border-radius: 12px;
+  display: block;
+  margin: auto;
+}
+
+/* ---- Loading Spinner ---- */
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Footer ---- */
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px 0;
+}
+
+.footer-btn {
+  background: #16a085;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-btn:hover {
+  background: #1abc9c;
+}
+
+/* ---- Model Select ---- */
+.model-select-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box; /* ✅ ป้องกันความล้น */
+  padding-left: 20px; /* ✅ ปรับให้หายขอบดำ */
+  padding-right: 20px; /* ✅ ปรับให้หายขอบดำ */
+}
+
+.model-select-group h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1abc9c;
+}
+
+.model-select-group label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 12px;
+  flex-wrap: nowrap;
+  color: #ecf0f1;
+  gap: 10px;
+}
+
+.model-select-group label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transform: scale(1.2);
+  accent-color: #1abc9c;
+}
+
+.model-select-group input[type="range"] {
+  flex: 1;
+  max-width: 200px;
+}
+
+.model-select-group span {
+  width: 40px;
+  text-align: right;
+  display: inline-block;
+}
+
+/* ---- Responsive ---- */
+@media screen and (max-width: 768px) {
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .model-select-group label {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .model-select-group input[type="range"] {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .model-select-group span {
+    width: auto;
+    text-align: left;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  button,
+  .footer-btn {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .description {
+    padding: 20px 10px;
+    margin: 20px 10px;
+  }
+
+  .description p {
+    font-size: 1rem;
+  }
+
+  .uploaded-image,
+  .processed-image {
+    max-height: 250px;
+  }
+}
+
+.threshold-presets {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.threshold-presets label {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+  color: #fffafa;
+}
+
+.threshold-presets button {
+  margin: 8px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #3f51b5, #5c6bc0); /* โทนม่วงน้ำเงิน */
+  transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+}
+
+.threshold-presets button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(63, 81, 181, 0.4);
+  background: linear-gradient(135deg, #3949ab, #3f51b5);
+}
+
+.info-tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  direction: ltr !important;
+  text-align: left !important;
+  border-radius: 8px;
+  padding: 12px 16px;
+  position: absolute;
+  z-index: 9999;
+  bottom: 140%; /* ลอยขึ้นเหนือปุ่ม */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 90vw; /* ไม่เกิน 90% ความกว้าง viewport */
+  min-width: 200px; /* กว้างขั้นต่ำ */
+  width: max-content; /* ขยายตามข้อความ */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  word-wrap: break-word;
+  white-space: normal; /* พับบรรทัดได้ */
+  pointer-events: none; /* ไม่ขวางเมาส์ */
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* ลูกศรชี้ลง */
+  left: 50%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.info-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto; /* เปิดเมาส์ได้เมื่อโชว์ */
+}
+
+.advanced-btn {
+  background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+  color: white;
+  font-size: 1.1rem;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.advanced-btn:hover {
+  background: linear-gradient(135deg, #148f77, #1abc9c);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.advanced-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.threshold-btn.active,
+.threshold-btn.active:hover {
+  background: #27ae60;
+  color: #fff;
+  font-weight: bold;
+}
+.analysis-checkbox-group {
+  display: flex;
+  flex-direction: column; /* ✅ เรียงแนวตั้ง */
+  align-items: flex-start;
+  margin: 20px auto;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 20px;
+  border-radius: 12px;
+}
+
+.analysis-checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.analysis-checkbox-group input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #1abc9c; /* ✅ สีติ๊กถูก */
+  cursor: pointer;
+}

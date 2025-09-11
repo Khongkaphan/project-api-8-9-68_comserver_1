@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>แผนการใช้งาน</title>
+  <link rel="stylesheet" href="plan.css">
+</head>
+<body>
+
+  <h1>เลือกแผนการใช้งาน</h1>
+
+  <div class="plans">
+    <div class="plan">
+      <h2>Test Plan</h2>
+      <ul class="features">
+        <li>Image Upload Limit 100 ครั้ง (ขอได้เเค่ครั้งเดียว)</li>
+      </ul>
+      <a class="btn" href="../apikey/apikeyfree.html">เลือกใช้งาน</a>
+    </div>
+
+    <div class="plan">
+      <h2>Premium Plan</h2>
+      <ul class="features">
+        <li>Image Upload Limit 1 บาท ต่อ 100 image count</li>
+      </ul>
+      <a class="btn" href="../apikey/apikey.html">เลือกใช้งาน</a>
+    </div>
+
+    <div class="plan">
+      <h2>Monthly Plan</h2>
+      <ul class="features">
+        <li>ราคา 30 บาท / เดือน</li>
+        <li>ไม่จำกัด Image Upload Limit</li>
+      </ul>
+      <a class="btn" href="../apikey/apikey_month.html">เลือกใช้งาน</a>
+    </div>
+  </div>
+
+  <div id="result" class="message"></div>
+  <script src="../config.js"></script> 
+  <script src="plan.js"></script>
+</body>
+</html>

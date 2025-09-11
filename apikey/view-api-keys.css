@@ -1,0 +1,113 @@
+/* กำหนดฟอนต์ทั่วทั้งหน้า */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+}
+
+/* คอนเทนเนอร์หลัก */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+/* หัวข้อ */
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* สไตล์สำหรับแต่ละบล็อค API Key */
+.api-key {
+    background-color: #ffffff;
+    border: 1px solid #e1e5f2;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.api-key:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* การจัดระเบียบข้อมูลภายในบล็อค */
+.api-key p {
+    margin: 12px 0;
+    color: #555;
+    font-size: 1rem;
+}
+
+/* การตั้งค่าสำหรับข้อความที่เป็นตัวหนา */
+.api-key strong {
+    color: #007bff;
+    font-weight: 500;
+}
+
+/* การเลื่อนข้อมูลเมื่อมีหลายบล็อค */
+#apiKeysList {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #f4f4f4;
+}
+
+#apiKeysList::-webkit-scrollbar {
+    width: 8px;
+}
+
+#apiKeysList::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 4px;
+}
+
+#apiKeysList::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+}
+
+/* ปรับให้แต่ละ API Key มีพื้นที่ระหว่างกัน */
+.api-key:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+/* ปุ่มที่ใช้งาน */
+button {
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* สไตล์ของข้อความส่วนต่างๆ */
+h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+h4 {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate API Key</title>
+    <link rel="stylesheet" href="apikey.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="https://cdn.omise.co/omise.js"></script>
+    <style>
+      .slider-container {
+        position: relative;
+        width: fit-content;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      .slider-value {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Premium Plan</h1>
+      <h2>Select Detection Options</h2>
+      <div class="options">
+        <label>
+          <input type="checkbox" value="porn" class="analysis-option" />
+          <i class="fas fa-user-secret"></i> Nudity
+          <label for="porn-threshold">Threshold:</label><br />
+          <div class="slider-container">
+            <span id="porn-threshold-value" class="slider-value">0.50</span
+            ><br />
+            <input
+              type="range"
+              id="porn-threshold"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.5"
+              oninput="updateThresholdValue('porn')"
+            />
+          </div>
+        </label>
+
+        <label>
+          <input type="checkbox" value="cigarette" class="analysis-option" />
+          <i class="fas fa-smoking"></i> Smoking
+          <label for="cigarette-threshold">Threshold:</label><br />
+          <div class="slider-container">
+            <span id="cigarette-threshold-value" class="slider-value">0.50</span
+            ><br />
+            <input
+              type="range"
+              id="cigarette-threshold"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.5"
+              oninput="updateThresholdValue('cigarette')"
+            />
+          </div>
+        </label>
+
+        <label>
+          <input type="checkbox" value="weapon" class="analysis-option" />
+          <i class="fas fa-gun"></i> Weapon
+          <label for="weapon-threshold">Threshold:</label><br />
+          <div class="slider-container">
+            <span id="weapon-threshold-value" class="slider-value">0.50</span
+            ><br />
+            <input
+              type="range"
+              id="weapon-threshold"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.5"
+              oninput="updateThresholdValue('weapon')"
+            />
+          </div>
+        </label>
+
+        <label>
+          <input type="checkbox" value="violence" class="analysis-option" />
+          <i class="fas fa-fist-raised"></i> Violence
+          <label for="violence-threshold">Threshold:</label><br />
+          <div class="slider-container">
+            <span id="violence-threshold-value" class="slider-value">0.50</span
+            ><br />
+            <input
+              type="range"
+              id="violence-threshold"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.5"
+              oninput="updateThresholdValue('violence')"
+            />
+          </div>
+        </label>
+      </div>
+
+      <h3>Subscription Duration<br />(30 THB / month)</h3>
+      <input type="number" id="duration" min="1" value="1" step="1" /><br />
+      <button class="view-btn" onclick="generateApiKey()">Generate Key</button>
+    </div>
+
+    <script>
+      // ฟังก์ชันเพื่ออัปเดตค่า threshold ที่แสดง
+      function updateThresholdValue(option) {
+        const thresholdValue = document.getElementById(
+          option + "-threshold"
+        ).value;
+        document.getElementById(option + "-threshold-value").textContent =
+          parseFloat(thresholdValue).toFixed(2);
+      }
+    </script>
+    <script src="../config.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="apikey_month.js"></script>
+  </body>
+</html>

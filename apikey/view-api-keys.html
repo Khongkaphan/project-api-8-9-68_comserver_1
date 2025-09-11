@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Your API Keys</title>
+    <link rel="stylesheet" href="view-api-keys.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- แสดงชื่อผู้ใช้ -->
+        <p id="usernameDisplay" style="text-align: center; font-weight: bold; margin-bottom: 10px; font-size: 24px;"></p>
+
+        <h2>Your API Keys</h2>
+
+        <!-- ปุ่ม Create API Key -->
+        <div style="text-align: center; margin-bottom: 30px;">
+            <a href="../plan/plan.html">
+                <button>Create API Key</button>
+            </a>
+        </div>
+
+        <!-- ปุ่ม Logout -->
+        <div style="text-align: center; margin-bottom: 30px;">
+            <button onclick="logout()">Logout</button>
+        </div>
+        
+        <!-- รายการ API Keys -->
+        <div id="apiKeysList">
+            <!-- ข้อมูล API Keys จะแสดงที่นี่ -->
+        </div>
+    </div>
+    <script src="../config.js"></script> 
+    <script src="view-api-keys.js"></script>
+</body>
+</html>
+

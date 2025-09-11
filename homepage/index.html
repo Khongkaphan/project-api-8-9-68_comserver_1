@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objexify - ตรวจจับวัตถุอัตโนมัติ</title>
+    <link rel="stylesheet" href="../homepage/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  </head>
+  <body>
+    <!-- พื้นหลังพาร์ติเคิล -->
+    <div id="particles-js"></div>
+
+    <header class="header">
+      <h1>Objexify 🚀</h1>
+      <p>ระบบ AI ตรวจจับวัตถุในภาพแบบเรียลไทม์</p>
+    </header>
+    <div id="menubar"></div>
+    <script>
+      fetch("../menubar/menubar.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("menubar").innerHTML = html;
+        });
+    </script>
+
+    <div class="button-group">
+      <button class="upload-btn" onclick="uploadImage()">
+        📤 อัพโหลดรูปภาพ
+      </button>
+      <a href="../login-singup/login.html">
+        <button class="api-btn">🔑 ขอ API Key</button>
+      </a>
+    </div>
+      <div class="analysis-checkbox-group">
+    <label>
+      <input type="checkbox" name="analysis" value="porn" /> 🔞 ภาพลามก
+    </label>
+    <label>
+      <input type="checkbox" name="analysis" value="weapon" /> 🔫 อาวุธ
+    </label>
+    <label>
+      <input type="checkbox" name="analysis" value="cigarette" /> 🚬 บุหรี่
+    </label>
+    <label>
+      <input type="checkbox" name="analysis" value="violence" /> 🩸 ความรุนแรง
+    </label>
+  </div>
+
+
+    <!-- 🎯 เลือกระดับความเข้มงวด -->
+    <div class="threshold-presets" style="margin-top: 10px">
+      <label>🎯 เลือกระดับความเข้มงวด:</label><br />
+      <button class="threshold-btn" onclick="selectLevel(this, 0.3)">
+        🔹 ต่ำ
+      </button>
+      <button class="threshold-btn" onclick="selectLevel(this, 0.5)">
+        🔸 ปานกลาง
+      </button>
+      <button class="threshold-btn" onclick="selectLevel(this, 0.7)">
+        🔺 สูง
+      </button>
+    </div>
+
+    <!-- ✅ ปุ่ม Advanced -->
+    <div style="margin-top: 15px">
+      <button class="advanced-btn" onclick="toggleAdvanced()">
+        ⚙️ ตั้งค่าขั้นสูง
+      </button>
+    </div>
+
+    <!-- 🔒 ซ่อนโมเดลไว้ในนี้ -->
+    <div
+      class="model-select-group"
+      id="advanced-settings"
+      style="display: none; margin-top: 10px"
+    >
+      <h3>
+        🧠 เลือกโมเดลและ Confidence Threshold
+        <span class="info-tooltip">
+          ℹ️
+          <span class="tooltip-text"
+            >Confidence Threshold คือค่าความเชื่อมั่นขั้นต่ำที่ AI
+            ต้องมีในการตัดสินว่าวัตถุที่พบเป็นวัตถุจริง ๆ หากตั้งค่าสูง
+            ระบบจะตรวจจับเฉพาะวัตถุที่มั่นใจมากเท่านั้น</span
+          >
+        </span>
+      </h3>
+
+      <label>
+        🔞 ภาพลามก
+        <input
+          type="range"
+          id="porn-threshold"
+          min="0"
+          max="1"
+          step="0.01"
+          value="0.5"
+          oninput="updateThreshold('porn')"
+        />
+        <span id="porn-threshold-value">0.50</span>
+      </label>
+      <br />
+
+      <label>
+        🔫 อาวุธ
+        <input
+          type="range"
+          id="weapon-threshold"
+          min="0"
+          max="1"
+          step="0.01"
+          value="0.5"
+          oninput="updateThreshold('weapon')"
+        />
+        <span id="weapon-threshold-value">0.50</span>
+      </label>
+      <br />
+
+      <label>
+        🚬 บุหรี่
+        <input
+          type="range"
+          id="cigarette-threshold"
+          min="0"
+          max="1"
+          step="0.01"
+          value="0.5"
+          oninput="updateThreshold('cigarette')"
+        />
+        <span id="cigarette-threshold-value">0.50</span>
+      </label>
+      <br />
+
+      <label>
+        🩸 ความรุนแรง
+        <input
+          type="range"
+          id="violence-threshold"
+          min="0"
+          max="1"
+          step="0.01"
+          value="0.5"
+          oninput="updateThreshold('violence')"
+        />
+        <span id="violence-threshold-value">0.50</span>
+      </label>
+      <br />
+    </div>
+
+    <section class="result">
+      <div id="loadingSpinner" class="spinner" style="display: none"></div>
+      <p id="resultText"></p>
+
+      <div class="image-container">
+        <h3>📸 ภาพต้นฉบับ:</h3>
+        <img
+          id="imagePreview"
+          class="uploaded-image"
+          style="display: none"
+          alt="Uploaded Image"
+        />
+      </div>
+
+      <div class="image-container">
+        <h3>✨ ภาพที่ประมวลผลแล้ว:</h3>
+        <img
+          id="processedImage"
+          class="processed-image"
+          style="display: none"
+          alt="Processed Image"
+        />
+      </div>
+    </section>
+
+    <footer class="footer">
+      <button
+        class="footer-btn"
+        onclick="window.open('../report-page/reportissue.html', '_blank')"
+      >
+        📩 รายงานปัญหา
+      </button>
+      <button class="footer-btn" onclick="downloadManual()">
+        📖 ดาวน์โหลดคู่มือ
+      </button>
+    </footer>
+    <script>
+      function updateThreshold(model) {
+        const value = document.getElementById(`${model}-threshold`).value;
+        document.getElementById(`${model}-threshold-value`).textContent =
+          parseFloat(value).toFixed(2);
+      }
+
+      function setThresholdLevel(value) {
+        const models = ["porn", "weapon", "cigarette", "violence"];
+        models.forEach((model) => {
+          const slider = document.getElementById(`${model}-threshold`);
+          const display = document.getElementById(`${model}-threshold-value`);
+          slider.value = value;
+          display.textContent = value.toFixed(2);
+        });
+      }
+    </script>
+    <script>
+      function selectLevel(button, value) {
+        setThresholdLevel(value);
+
+        // ลบ active class จากปุ่มทั้งหมด
+        document.querySelectorAll(".threshold-btn").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+
+        // เพิ่ม active class ให้ปุ่มที่กด
+        button.classList.add("active");
+      }
+    </script>
+    <!-- เรียกใช้ไฟล์ JavaScript ของคุณ -->
+    <script src="../config.js"></script>
+    <script src="../homepage/partcles-html.js"></script>
+    <script src="../homepage/scripts.js"></script>
+  </body>
+</html>

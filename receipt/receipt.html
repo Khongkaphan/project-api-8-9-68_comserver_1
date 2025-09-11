@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Receipt</title>
+  <link rel="stylesheet" href="receipt.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Upload Receipt</h2>
+    <p>
+    <strong>เหลือเวลาอัปโหลดสลิป:</strong>
+    <span id="countdown" style="color: #d9534f; font-weight: bold">5:00</span>
+    </p>
+    
+    <label for="receiptImage">Choose receipt image:</label>
+    <input type="file" id="receiptImage" accept="image/*" />
+    
+    <button id="uploadBtn">Upload & Verify</button>
+  
+    <div class="spinner"></div>
+    <p id="uploadStatus"></p>
+
+    <h2>API Key ของคุณ:</h2>
+    <p id="api_key" style="color: rgb(0, 0, 0); font-weight: bold;"></p>
+  <script src="../config.js"></script> 
+  <script src="receipt.js"></script>
+</body>
+</html>

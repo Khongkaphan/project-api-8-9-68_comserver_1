@@ -1,0 +1,189 @@
+body {
+    color: #fff;
+    background: #2a3b4c; /* สีฟ้าคูลๆ */
+    font-family: 'Roboto', sans-serif;
+    transition: background 0.3s ease; /* ให้หน้ามีการเปลี่ยนแปลงสีพื้นหลัง */
+}
+ 
+.form-control {
+    border-color: #4e6e82; /* สีที่เข้มขึ้น */
+    min-height: 41px;
+    box-shadow: none !important;
+    transition: all 0.3s ease; /* ให้ฟิลด์ input มีการเปลี่ยนแปลง */
+}
+ 
+.form-control:focus {
+    border-color: #7db9c3; /* สีฟ้าเข้ม */
+    background: #263a4f; /* สีพื้นหลังอ่อนๆ เมื่อมีการโฟกัส */
+    transform: scale(1.05); /* ขยายขนาดเมื่อโฟกัส */
+}
+ 
+.form-control, .btn {
+    border-radius: 5px;
+}
+ 
+.signup-form {
+    width: 500px;
+    margin: 0 auto;
+    padding: 30px 0;
+    background: #344c62; /* สีพื้นหลังคูลๆ */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* เงาฟอร์มให้ดูนุ่มนวล */
+    border-radius: 8px;
+    animation: slideIn 1s ease-out; /* เอฟเฟกต์การเลื่อนฟอร์มเข้า */
+}
+ 
+.signup-form h2 {
+    color: #fff;
+    margin: 0 0 30px 0;
+    display: inline-block;
+    padding: 0 30px 10px 0;
+    border-bottom: 3px solid #7db9c3;
+    font-size: 30px;
+    text-transform: uppercase; /* เพิ่มการจัดตัวอักษรเป็นตัวพิมพ์ใหญ่ */
+    animation: fadeIn 0.6s ease-in; /* เอฟเฟกต์การเลื่อนให้หัวข้อ */
+}
+ 
+.signup-form form {
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 30px;
+}
+ 
+.signup-form .form-group {
+    margin-bottom: 20px;
+}
+ 
+.signup-form label {
+    font-weight: normal;
+    font-size: 13px;
+}
+ 
+.signup-form input[type="checkbox"] {
+    margin-top: 2px;
+}
+ 
+.signup-form .btn {
+    font-size: 16px;
+    font-weight: bold;
+    background: #5cd3b4; /* สีน้ำเงิน-เขียว */
+    border: none;
+    margin-top: 20px;
+    min-width: 140px;
+    transition: background 0.3s ease, transform 0.2s ease; /* เพิ่มการเปลี่ยนแปลงสีและขนาดปุ่ม */
+}
+ 
+.signup-form .btn:hover, .signup-form .btn:focus {
+    background: #41cba9; /* เขียวสดใส */
+    outline: none !important;
+    transform: scale(1.1); /* ขยายขนาดปุ่มเมื่อ hover */
+}
+ 
+.signup-form a {
+    color: #7db9c3;
+    text-decoration: underline;
+    transition: color 0.3s ease; /* การเปลี่ยนแปลงสีลิงค์ */
+}
+ 
+.signup-form a:hover {
+    text-decoration: none;
+    color: #ffffff; /* เปลี่ยนสีเป็นขาวเมื่อ hover */
+}
+ 
+.signup-form form a {
+    color: #7db9c3;
+    text-decoration: none;
+}
+ 
+.signup-form form a:hover {
+    text-decoration: underline;
+}
+ 
+/* เพิ่มการเคลื่อนไหวของฟอร์ม */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+ 
+/* เพิ่มการเคลื่อนไหวของหัวข้อ */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+ 
+/* กำหนดพื้นหลังและสีข้อความใน input */
+.form-control {
+    border-color: #4e6e82; /* สีขอบ */
+    min-height: 41px;
+    box-shadow: none !important;
+    transition: all 0.3s ease;
+    color: #fff; /* สีข้อความ */
+    background-color: #263a4f; /* สีพื้นหลัง */
+}
+ 
+/* เมื่อ input ได้รับ focus */
+.form-control:focus {
+    background-color: #263a4f !important;
+    border-color: #4e6e82 !important;
+    color: #fff;
+}
+ 
+/* ป้องกันการเปลี่ยนพื้นหลังเมื่อใช้ autofill */
+input:-webkit-autofill {
+    background-color: #263a4f !important; /* สีพื้นหลังที่ต้องการ */
+    color: #fff !important; /* สีข้อความ */
+    border-color: #4e6e82 !important;
+}
+ 
+/* ป้องกันการเปลี่ยนสีพื้นหลังตอน autofill */
+input:-webkit-autofill:focus {
+    background-color: #263a4f !important;
+    color: #fff !important;
+    border-color: #4e6e82 !important;
+}
+ 
+/* ป้องกันการเปลี่ยนสีพื้นหลังเมื่อเลือกคำที่เคยพิมพ์ */
+input:-webkit-autofill:focus,
+input:focus {
+    background-color: #263a4f !important;
+    color: #fff !important;
+}
+
+        /* เพิ่ม CSS สำหรับปุ่มดวงตา */
+        .password-container {
+            position: relative;
+        }
+        .eye-icon {
+            position: absolute;
+            right: 17px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #263a4f;  /* พื้นหลังสีขาว */
+            border: 1px solid #263a4f;  /* ขอบสีขาว */
+            padding: 0px 5px;  /* เพิ่มพื้นที่ภายใน (padding) */
+            font-size: 23px;
+            cursor: pointer;
+            display: none;  /* ซ่อนไอคอนเมื่อเริ่มต้น */
+        }
+        
+
+        /* เพิ่ม style สำหรับพื้นหลัง */
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* ให้ particle อยู่หลังฟอร์ม */
+        }
+    
