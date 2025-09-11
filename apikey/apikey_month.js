@@ -45,7 +45,7 @@ async function generateApiKey() {
         const data = await response.json();
 
         if (!response.ok) {
-            alert("เกิดข้อผิดพลาดในการสร้าง QR Code");
+            alert("เกิดข้อผิดพลาดในการสร้าง QR Code ");
             return;
         }
 
